@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  node1:
+    image: redis
+    container_name: redis-cluster-node-1
+    network_mode: "host"
+    volumes:
+      - "/www/docker/redis/cluster/node-1/conf:/usr/local/etc/redis"
+      - "/www/docker/redis/cluster/node-1/data:/data"
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    restart: always
+  node2:
+    image: redis
+    container_name: redis-cluster-node-2
+    network_mode: "host"
+    volumes:
+      - "/www/docker/redis/cluster/node-2/conf:/usr/local/etc/redis"
+      - "/www/docker/redis/cluster/node-2/data:/data"
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    restart: always
+  node3:
+    image: redis
+    container_name: redis-cluster-node-3
+    network_mode: "host"
+    volumes:
+      - "/www/docker/redis/cluster/node-3/conf:/usr/local/etc/redis"
+      - "/www/docker/redis/cluster/node-3/data:/data"
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    restart: always
